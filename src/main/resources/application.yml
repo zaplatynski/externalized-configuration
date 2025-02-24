@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+external-config:
+  stages:
+    - name: dev
+      properties:
+        key1: value1
+        key2: 123
+        key3: true
+    - name: prod
+      properties:
+        key1: productionValue
+        key2: 456
+        key3: false
+
+logging:
+  level:
+    root: INFO
+    com.example.externalizedconfiguration: DEBUG
